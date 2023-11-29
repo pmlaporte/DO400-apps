@@ -34,7 +34,7 @@ sh "npm run build"
 
 }
 
-}}}}
+}
 
 }
 
