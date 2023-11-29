@@ -50,6 +50,20 @@ sh "npm run test:unit"
 
 }
 
+stage ('Functional Tests') {
+
+steps {
+
+dir ('exchange-cli') {
+
+sh "npm run test:functional"
+
+}
+
+}
+
+}
+
 }
 
 }
