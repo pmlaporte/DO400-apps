@@ -1,19 +1,24 @@
 pipeline {
-    agent { label 'nodejs' }
 
-    // Set your OCP project
-    //environment { APP_NAMESPACE = '...' }
+agent { label 'nodejs' }
 
-    stages{
+stages{
 
-        stage('Test'){
-            steps {
-                sh "node test.js"
-            }
-        }
+stage('Test'){
 
-        // Add more stages here
-	stage('Deploy') {
+steps {
+
+dir('greeting-cd-pipeline') {
+
+sh "node test.js"
+
+}
+
+}
+
+}
+
+stage('Deploy') {
 
 steps {
 
@@ -27,7 +32,8 @@ oc start-build greeting-metrics \
 
 }
 
-}	   
- 
-   }
+}
+
+}
+
 }
